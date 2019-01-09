@@ -1,0 +1,37 @@
+server:
+  port: 8770
+  servlet:
+    context-path: /${spring.application.name}
+spring:
+  application:
+    name: bbe-customers
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+  datasource:
+    url: jdbc:mysql://localhost:3306/be
+    username: be
+    password: be
+#    url: jdbc:mysql://localhost:3306/spring_app
+#    username: spring
+#    password: spring
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    health-check-url: http://localhost:${server.port}/${spring.application.name}/actuator/health
+    status-page-url: http://localhost:${server.port}/${spring.application.name}/actuator/info
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+security:
+  oauth2:
+    client:
+      clientId: asdasd
+      clientSecret: asdasdq
+      accessTokenUri: http://localhost:9090/oauth/token
+      userAuthorizationUri: http://localhost:9090/oauth/check_token
+      clientAuthenticationScheme: header
