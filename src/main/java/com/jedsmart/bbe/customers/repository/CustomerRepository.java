@@ -1,9 +1,15 @@
 package com.jedsmart.bbe.customers.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
 
-import com.jedsmart.bbe.customers.model.Customer;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.jedsmart.bbe.customers.domain.Customer;
 
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
+
+	@Query("select c from Customer c where lower(concat(c.firstName, ' ', c.lastName)) like lower(concat('%', :criteria, '%'))")
+	List<Customer> findAllByFirstNameOrLastName(String criteria);
 
 }

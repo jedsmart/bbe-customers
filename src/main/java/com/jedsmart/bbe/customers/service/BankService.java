@@ -2,8 +2,8 @@ package com.jedsmart.bbe.customers.service;
 
 import java.util.List;
 
+import com.jedsmart.bbe.customers.domain.Bank;
 import com.jedsmart.bbe.customers.dto.BankDTO;
-import com.jedsmart.bbe.customers.model.Bank;
 
 public interface BankService {
 

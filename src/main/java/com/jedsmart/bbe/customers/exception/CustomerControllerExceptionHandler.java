@@ -15,7 +15,7 @@ import com.jedsmart.bbe.customers.dto.ExceptionDTO.ExceptionDTOBuilder;
 @RestControllerAdvice
 public class CustomerControllerExceptionHandler {
 
-	@ExceptionHandler({ CustomerNotFoundException.class })
+	@ExceptionHandler({ ResourceNotFoundException.class })
 	public ResponseEntity<ExceptionDTO> customerNotFoundException(HttpServletRequest req, Exception ex) {
 		ExceptionDTOBuilder builder = ExceptionDTO.builder();
 		builder.code("");
